@@ -1,0 +1,58 @@
+template: Hello, %s!
+defaultName: Stranger
+
+
+# Avoid using the default 8080 port for RESTFul services
+server:
+  type: simple
+  applicationContextPath: /api
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 9000
+
+
+# Database settings for MySql
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password: root
+  url: jdbc:mysql://localhost:3306/asset  #Database pms
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+#database:
+#  # the name of your JDBC driver
+#  driverClass: org.postgresql.Driver
+#  user: postgres
+#  password:
+#  url: jdbc:postgresql://localhost:5432/postgres
+#
+#  # any properties specific to your JDBC driver:
+#  properties:
+#    charSet: UTF-8
+#    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate.show_sql: true
+#    hibernate.format_sql: true
+#    hibernate.default_schema: postgres.public
+#    hibernate.hbm2ddl.auto: create-drop
+#    hibernate.ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+#
+#  # the maximum amount of time to wait on an empty pool before throwing an exception
+#  maxWaitForConnection: 1s
+#
+#  # the SQL query to run when validating a connection's liveness
+#  validationQuery: "/* MyApplication Health Check */ SELECT 1"
+#
+#  # the minimum number of connections to keep open
+#  minSize: 8
+#
+#  # the maximum number of connections to keep open
+#  maxSize: 32
+#
+#  # whether or not idle connections should be validated
+#  checkConnectionWhileIdle: false
+
+
+# Add resource packages to be scanned by Swagger
+swagger:
+  resourcePackage: com.jay.asset.resources
