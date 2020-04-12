@@ -13,6 +13,9 @@ Build the asset-application
 First do a mvn clean install from the project root dir, and then from the asset-application root dir:
 
     mvn package
+Migate DB
+    
+    java -jar target/asset-application-1.0-SNAPSHOT.jar db migrate asset-application.yml
 Run the asset-application
 From the asset-application root dir:
 
